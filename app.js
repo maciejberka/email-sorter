@@ -37,19 +37,20 @@ function findEmails() {
 function sortByCompanyName() {
   
   emails.sort(function(a, b) {
-    return a.substr(a.indexOf('@')+1) > b.substr(b.indexOf('@')+1);
+    return a.substr(a.indexOf('@') + 1) > b.substr(b.indexOf('@') + 1);
   });
   
   printEmails();
   
 }
 
+//finnaly add sorted emails to the paragraph element
 function printEmails(){
   
   const paragraph = document.querySelector('p');
   
   for(email of emails){
-    paragraph.innerHTML += `${email}<br>`
+    paragraph.innerHTML += `${email}<br>`;
   }
   
 }
