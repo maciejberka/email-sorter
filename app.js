@@ -11,6 +11,8 @@ submitButton.addEventListener('click', () => {
   //clear previous array
   emails = [];
   
+  paragraph.innerHTML = '';
+  
   //get entered text
   inputValue = document.querySelector('.text').value;
   findEmails();
@@ -19,7 +21,7 @@ submitButton.addEventListener('click', () => {
 //this function looking for email adresses
 function findEmails() {
   //take all words to the allWords array
-  let allWords = inputValue.split(' ');
+  let allWords = inputValue.replace( /\n/g, " " ).split( " " );
   
   for(word of allWords){
     //if found email adress and array doesn't contain it yet
@@ -44,10 +46,10 @@ function sortByCompanyName() {
   
 }
 
+const paragraph = document.querySelector('p');
+
 //finnaly add sorted emails to the paragraph element
 function printEmails(){
-  
-  const paragraph = document.querySelector('p');
   
   for(email of emails){
     paragraph.innerHTML += `${email}<br>`;
